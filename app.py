@@ -64,7 +64,7 @@ def main():
     if api_key:
         with open('.env', 'w') as env_file:
             env_file.write(f'OPENAI_API_KEY={api_key}\n')
-        st.success("API key saved to .env file.")
+        st.success("Success")
 
     # Reload environment variables after updating .env file
     load_dotenv()
