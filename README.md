@@ -7,7 +7,7 @@ Welcome to the Course GPT repository. This web application is designed to genera
 Course GPT empowers users to effortlessly create tailored mini-courses that match their specific interests and learning goals. By leveraging the capabilities of ChatOpenAI model and Langchain, this app streamlines the process of generating course content.
 
 ## Web App Link
-Explore the Course GPT web application: Course GPT
+Explore the Course GPT web application: [Course GPT](https://coursegpt.streamlit.app/)
 
 ## How It Works
 Users input their desired course topic, number of days, application area, and course level.
