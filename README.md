@@ -1,28 +1,51 @@
 # Course GPT
 
-WebApp Link : [Course GPT](https://coursegpt.streamlit.app/)
+Welcome to the Course GPT repository. This web application is designed to generate personalized course content based on user preferences, utilizing the power of ChatOpenAI model and Langchain.
 
-Welcome to the Repo. The primary use case of this app is to generate course content according to the user's particular interest.
 
-## How it works:
-This app was built using ChatOpenAI model and Langchain. It first generates 2 modules for the user input and then creates 2 subtopics for each module. Lastly, it generates course content based on the subtopic and return the results.
+## Introduction
+Course GPT empowers users to effortlessly create tailored mini-courses that match their specific interests and learning goals. By leveraging the capabilities of ChatOpenAI model and Langchain, this app streamlines the process of generating course content.
+
+## Web App Link
+Explore the Course GPT web application: Course GPT
+
+## How It Works
+Users input their desired course topic, number of days, application area, and course level.
+The app utilizes ChatOpenAI model and Langchain to dynamically generate module and subtopic suggestions.
+Course content is then generated based on the subtopics, providing a well-structured and personalized learning experience.
+
 
 ## Installation
-To install the repository, please clone this repository and install the requirements:
+Follow these steps to set up the repository on your local machine:
+
+Clone the repository:
+
+```
+git clone https://github.com/your-username/Course-GPT.git
+cd Course-GPT
+```
+
+Install the required dependencies:
 
 ```
 pip install -r requirements.txt
 ```
-You will also need to add your OpenAI API key to the .env file.
+Add your OpenAI API key to the .env file.
 
 ## Usage
+To launch the app locally, use the following command:
 
-To run the app in your localhost:
 ```
 streamlit run app.py
 ```
 
-## Contribution
+## Contributions
+Please note that this repository is designed for educational purposes and is not currently accepting further contributions. It serves as supplementary material for a YouTube tutorial that demonstrates how to build the project.
 
-This repository is for educational purposes only and is not intended to receive further contributions. It is supposed to be used as support material for the YouTube tutorial that shows how to build the project.
+Feel free to explore, learn, and adapt the concepts demonstrated in this repository to enhance your own projects.
+
+## Contact
+For any inquiries or feedback, you can reach out to me on [LinkedIn](https://www.linkedin.com/in/udbhav-tripathi554388179/).
+
+I hope you enjoy using Course GPT as much as I enjoyed building it!
 
