@@ -11,8 +11,27 @@ from helper_functions.course_maker_multi import course_maker
 from dotenv import load_dotenv
 from helper_functions.course_JSON import course_save_JSON
 import json
+import os
 
 load_dotenv()
+
+
+# Get user input for the API key
+api_key = st.text_input("Enter your API key:")
+
+# Update the .env file with the provided API key
+if api_key:
+    with open('.env', 'a') as env_file:
+        env_file.write(f'OPENAI_API_KEY={api_key}\n')
+    st.success("API key saved to .env file.")
+
+# Reload environment variables after updating .env file
+load_dotenv()
+
+# Access the API key using os.getenv("API_KEY")
+api_key_from_env = os.getenv("OPENAI_API_KEY")
+
+
 
 # Define custom CSS styles
 main_bg_color = "#f8f9fa"
