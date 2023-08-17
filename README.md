@@ -21,8 +21,8 @@ Follow these steps to set up the repository on your local machine:
 Clone the repository:
 
 ```
-git clone https://github.com/your-username/Course-GPT.git
-cd Course-GPT
+git clone https://github.com/udbhavtripathi/Course_GPT/tree/master
+cd Course_GPT
 ```
 
 Install the required dependencies:
