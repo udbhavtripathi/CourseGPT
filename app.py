@@ -87,20 +87,23 @@ def main():
         with st.spinner("Generating course..."):
 
             retry = True
-            while retry:
+            while retry == True:
                 try:
                     module_output, subtopic_outputs_list, contents_output_list, *module_points = course_maker(
                         topic_name, num_days, application, level_dropdown)
                     
+                    # save course contents
+                    course_full_v2 = course_save_JSON(module_output, subtopic_outputs_list, contents_output_list, *module_points)
+        
+                    
                     retry = False  # Break out of the loop if no index error occurs
-                except IndexError:
+                    break
+                except IndexError as e:
                     # If an index error occurs, retry by continuing the loop
                     pass
 
             
-            # save course contents
-            course_full_v2 = course_save_JSON(module_output, subtopic_outputs_list, contents_output_list, *module_points)
-        
+            
             #save json data
             with open("course_full_v2.json", "w") as file:
                 file.write(course_full_v2)
