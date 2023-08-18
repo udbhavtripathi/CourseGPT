@@ -21,7 +21,7 @@ Follow these steps to set up the repository on your local machine:
 Clone the repository:
 
 ```
-git clone [https://github.com/udbhavtripathi/Course_GPT/tree/master](https://github.com/udbhavtripathi/Course_GPT.git)
+git clone https://github.com/udbhavtripathi/Course_GPT.git
 cd Course_GPT
 ```
 
