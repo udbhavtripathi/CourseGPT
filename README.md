@@ -22,7 +22,6 @@ Clone the repository:
 
 ```
 git clone https://github.com/udbhavtripathi/Course_GPT.git
-
 ```
 
 Head over to the folder:
