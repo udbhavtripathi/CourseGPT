@@ -35,7 +35,7 @@ Install the required dependencies:
 ```
 pip install -r requirements.txt
 ```
-Add your OpenAI API key to the .env file.
+
 
 ## Usage
 To launch the app locally, use the following command:
