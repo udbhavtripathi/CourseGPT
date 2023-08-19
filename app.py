@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from helper_functions.course_JSON import course_save_JSON
 import json
 import os
-
+import pickle
 
 # Define custom CSS styles
 main_bg_color = "#f8f9fa"
@@ -55,24 +55,6 @@ def main():
     st.title("Course GPT")
     st.write("Create a personalized mini-course based on your particular application")
 
-    # load_dotenv()
-
-    # # Get user input for the API key
-    # api_key = st.text_input("Enter your API key:")
-
-    # # Update the .env file with the provided API key
-    # if api_key:
-    #     with open('.env', 'w') as env_file:
-    #         env_file.write(f'OPENAI_API_KEY={api_key}\n')
-    #     st.success("Success")
-
-    # # Reload environment variables after updating .env file
-    # load_dotenv()
-
-    # # Access the API key using os.getenv("API_KEY")
-    # api_key_from_env = os.getenv("OPENAI_API_KEY")
-
-
 
 
     # Get user input for the API key
@@ -85,17 +67,20 @@ def main():
 
 
 
-     #1
+    #1
     topic_name = st.text_input("Enter the topic name:")
     #2
-    num_days = st.number_input("In how many days you wish to complete the course?", step=1)
+    num_modules = st.number_input("Enter number of modules you want to generate:", step =1)
     #3
-    application = st.text_input("Which application of the course you are partcularly interested in?")
-    
+    num_subtopics = st.number_input("Enter number of chapters you want to generate in each module:", step=1)
     #4
+    application = st.text_input("Which application of the course you are partcularly interested in?")
+    #5
     level_options = ['Beginner', 'Intermediate', 'Advanced']
     level_dropdown = st.selectbox('Level of course', level_options)
-    print("level_dropdown", level_dropdown)
+  
+
+
     if st.button("Generate Course"):
         with st.spinner("Generating course..."):
 
@@ -103,7 +88,14 @@ def main():
             while retry == True:
                 try:
                     module_output, subtopic_outputs_list, contents_output_list, *module_points = course_maker(
-                        topic_name, num_days, application, level_dropdown)
+                        topic_name, application, num_modules,level_dropdown,num_subtopics)
+                    
+                    
+                    # check if the number of modules created is correct
+                    if len(module_points) != num_modules:
+                        retry = True
+                        continue
+                    
                     
                     # save course contents
                     course_full_v2 = course_save_JSON(module_output, subtopic_outputs_list, contents_output_list, *module_points)
@@ -113,6 +105,8 @@ def main():
                     break
                 except IndexError as e:
                     # If an index error occurs, retry by continuing the loop
+                    pass
+                except pickle.PicklingError as e:
                     pass
 
             
@@ -134,7 +128,7 @@ def main():
                     subtopic_output = subtopic_data["subtopic_output"]
                     content_output = subtopic_data["content_output"]
                     
-                    st.write(f"**Module Number:** {module_number}")
+                    # st.write(f"**Module Number:** {module_number}")
                     st.write(f"**Module Heading:** {module_heading}")
                     st.write(f"**Subtopic:** {subtopic_output}")
                     st.write(f"Content: {content_output}")
