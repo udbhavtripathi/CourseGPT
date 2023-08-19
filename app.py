@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from helper_functions.course_JSON import course_save_JSON
 import json
 import os
-import pickle
+import pickle as pk
 
 
 # Define custom CSS styles
